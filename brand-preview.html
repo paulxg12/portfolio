@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prince Raymond Paul - Personal Brand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --obsidian: #1A1A1A;
+      --ivory: #FAFAF8;
+      --platinum: #E8E8E6;
+      --gold: #C9A962;
+      --sage: #8B9A7D;
+      --blue: #7A8B9A;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--ivory);
+      color: var(--obsidian);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 80px 0;
+      border-bottom: 1px solid var(--platinum);
+      margin-bottom: 64px;
+    }
+
+    .monogram {
+      font-size: 48px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      margin-bottom: 16px;
+    }
+
+    .accent-line {
+      width: 80px;
+      height: 1px;
+      background: var(--gold);
+      margin: 16px auto;
+    }
+
+    .wordmark {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 64px;
+    }
+
+    h2 {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 24px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--platinum);
+    }
+
+    /* Colors */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+    }
+
+    .color-swatch {
+      text-align: center;
+    }
+
+    .swatch {
+      height: 80px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .color-name {
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .color-hex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--blue);
+    }
+
+    /* Typography */
+    .type-sample {
+      margin-bottom: 32px;
+    }
+
+    .type-label {
+      font-size: 12px;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .type-display {
+      font-size: 48px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+    }
+
+    .type-heading {
+      font-size: 32px;
+      font-weight: 600;
+    }
+
+    .type-body {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .type-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      background: var(--platinum);
+      padding: 16px;
+      border-radius: 4px;
+    }
+
+    /* Logo Variations */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+
+    .logo-item {
+      padding: 32px;
+      background: var(--obsidian);
+      border-radius: 8px;
+    }
+
+    .logo-item.light {
+      background: var(--obsidian);
+    }
+
+    .logo-item.dark {
+      background: white;
+      border: 1px solid var(--platinum);
+    }
+
+    .logo-label {
+      font-size: 12px;
+      color: var(--blue);
+      margin-top: 16px;
+    }
+
+    /* Do's and Don'ts */
+    .dos-donts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .dos, .donts {
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    .dos {
+      background: #F0F4ED;
+      border: 1px solid var(--sage);
+    }
+
+    .donts {
+      background: #FDF4F4;
+      border: 1px solid #E8A0A0;
+    }
+
+    .dos h3, .donts h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .dos li, .donts li {
+      font-size: 14px;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .dos li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--sage);
+    }
+
+    .donts li::before {
+      content: "✗";
+      position: absolute;
+      left: 0;
+      color: #D66;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 48px 0;
+      border-top: 1px solid var(--platinum);
+      margin-top: 64px;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--blue);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="monogram">P R</div>
+      <div class="accent-line"></div>
+      <div class="wordmark">Prince Raymond Paul</div>
+    </header>
+
+    <section>
+      <h2>Color Palette</h2>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="swatch" style="background: #1A1A1A;"></div>
+          <div class="color-name">Obsidian</div>
+          <div class="color-hex">#1A1A1A</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #FAFAF8; border: 1px solid #E8E8E6;"></div>
+          <div class="color-name">Ivory</div>
+          <div class="color-hex">#FAFAF8</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #E8E8E6;"></div>
+          <div class="color-name">Platinum</div>
+          <div class="color-hex">#E8E8E6</div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #C9A962;"></div>
+          <div class="color-name">Warm Gold</div>
+          <div class="color-hex">#C9A962</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Typography</h2>
+      <div class="type-sample">
+        <div class="type-label">Display / Logo</div>
+        <div class="type-display">P R</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Heading</div>
+        <div class="type-heading">Software Engineer</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Body</div>
+        <div class="type-body">
+          Building elegant solutions with clean code and thoughtful design. 
+          Focused on creating meaningful software that makes a difference.
+        </div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Code</div>
+        <div class="type-code">
+          const developer = {<br>
+          &nbsp;&nbsp;name: 'Prince Raymond Paul',<br>
+          &nbsp;&nbsp;role: 'Software Engineer',<br>
+          &nbsp;&nbsp;passion: 'Clean Code'<br>
+          };
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Logo Variations</h2>
+      <div class="logo-grid">
+        <div class="logo-item light">
+          <div style="color: #FAFAF8; font-weight: 300; font-size: 32px; letter-spacing: 0.2em;">P R</div>
+          <div style="color: #C9A962; height: 1px; width: 60px; margin: 16px auto; background: #C9A962;"></div>
+          <div style="color: #FAFAF8; font-size: 10px; letter-spacing: 0.1em;">PRINCE RAYMOND PAUL</div>
+        </div>
+        <div class="logo-item dark">
+          <div style="color: #1A1A1A; font-weight: 300; font-size: 32px; letter-spacing: 0.2em;">P R</div>
+          <div style="color: #C9A962; height: 1px; width: 60px; margin: 16px auto; background: #C9A962;"></div>
+          <div style="color: #1A1A1A; font-size: 10px; letter-spacing: 0.1em;">PRINCE RAYMOND PAUL</div>
+        </div>
+        <div class="logo-item light">
+          <div style="color: #FAFAF8; font-size: 48px; font-weight: 600;">PR</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Guidelines</h2>
+      <div class="dos-donts">
+        <div class="dos">
+          <h3>Do</h3>
+          <ul>
+            <li>Use ample whitespace</li>
+            <li>Keep designs minimal</li>
+            <li>Use Inter or DM Sans font</li>
+            <li>Apply gold as subtle accent</li>
+            <li>Maintain consistent spacing</li>
+          </ul>
+        </div>
+        <div class="donts">
+          <h3>Don't</h3>
+          <ul>
+            <li>Add gradients or 3D effects</li>
+            <li>Use more than 2 fonts</li>
+            <li>Overcrowd with elements</li>
+            <li>Use bold weights excessively</li>
+            <li>Apply colors liberally</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Prince Raymond Paul — Software Engineer</p>
+      <p style="margin-top: 8px; font-size: 11px;">Brand Guidelines 2026</p>
+    </footer>
+  </div>
+</body>
+</html>

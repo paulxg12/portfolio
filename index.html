@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prince Raymond Paul — AI & ML Engineer</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #FFFFFF;
+      --bg-secondary: #FAFAFA;
+      --text: #111111;
+      --text-secondary: #666666;
+      --text-tertiary: #999999;
+      --accent: #375534;
+      --border: #E5E5E5;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: white;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .nav.scrolled {
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 48px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 24px;
+    }
+
+    .hero-name {
+      font-size: clamp(48px, 8vw, 80px);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .hero-role {
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .hero-description {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 540px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: white;
+      border: 1px solid var(--text);
+    }
+
+    .btn-primary:hover {
+      background: #333;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text);
+    }
+
+    /* Section */
+    .section {
+      padding: 120px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 64px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-image {
+      aspect-ratio: 1;
+      background: var(--bg-secondary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(55, 85, 52, 0.03) 2px,
+        rgba(55, 85, 52, 0.03) 4px
+      );
+    }
+
+    .about-monogram {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 96px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text);
+    }
+
+    .about-content h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-value {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Projects - Simple List */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-item {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-item:first-child {
+      padding-top: 0;
+    }
+
+    .project-category {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .project-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+    }
+
+    .project-title {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .project-link {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      transition: color 0.2s ease;
+    }
+
+    .project-link:hover {
+      color: var(--accent);
+    }
+
+    .project-description {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      max-width: 700px;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .tech-tag:not(:last-child)::after {
+      content: '·';
+      margin-left: 8px;
+      color: var(--border);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+    }
+
+    .skill-category h3 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 20px;
+    }
+
+    .skill-category ul {
+      list-style: none;
+    }
+
+    .skill-category li {
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .skill-category li:not(:last-child) {
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Experience */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px 80px;
+    }
+
+    .experience-item {
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .experience-item:nth-last-child(-n+2) {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 12px;
+    }
+
+    .experience-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .experience-period {
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    .experience-company {
+      font-size: 14px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .experience-location {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+    }
+
+    .experience-description {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Education */
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .education-item {
+      padding: 32px;
+      background: var(--bg-secondary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .education-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent);
+    }
+
+    .education-degree {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .education-school {
+      font-size: 14px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .education-period {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+    }
+
+    .education-activities {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Contact */
+    .contact-section {
+      background: var(--text);
+      color: white;
+      padding: 120px 48px;
+    }
+
+    .contact-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .contact-content h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .contact-content p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .contact-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(55, 85, 52, 0.5);
+    }
+
+    .contact-link svg {
+      width: 18px;
+      height: 18px;
+      opacity: 0.5;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      color: white;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      padding: 16px 32px;
+      background: white;
+      border: none;
+      border-radius: 4px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .form-submit:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 40px 48px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .nav {
+        padding: 20px 32px;
+      }
+
+      .section {
+        padding: 80px 32px;
+      }
+
+      .contact-section {
+        padding: 80px 32px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .about-image {
+        max-width: 320px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .experience-grid,
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .footer {
+        padding: 32px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        padding: 16px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 100px 20px 60px;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-section {
+        padding: 60px 20px;
+      }
+
+      .footer {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">PAUL</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-label">AI & ML Engineer</div>
+      <h1 class="hero-name">Prince Raymond Paul</h1>
+      <p class="hero-role">Building intelligent systems with machine learning</p>
+      <p class="hero-description">
+        AI & ML engineer based in Bangalore, India, passionate about building products that solve real problems. 
+        My work focuses on machine learning, full-stack development, and emerging technologies.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+        <a href="#projects" class="btn btn-secondary">View Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="about-grid">
+      <div class="about-image">
+        <span class="about-monogram">PR</span>
+      </div>
+      <div class="about-content">
+        <div class="section-label">About</div>
+        <h3>Building intelligent systems</h3>
+        <p>
+          AI & ML engineer based in Bangalore, India, passionate about building products that solve real problems. 
+          My work focuses on machine learning, full-stack development, and emerging technologies.
+        </p>
+        <p>
+          Currently, I lead the technical development at Replybase, where we're reimagining customer support with AI. 
+          I've also contributed to NASA's Nanosat MO Framework and built various projects spanning quantum computing, 
+          predictive maintenance, and immersive web experiences.
+        </p>
+        <p>
+          When I'm not coding, you'll find me exploring the intersection of technology and creativity, 
+          always seeking elegant solutions to complex problems.
+        </p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-value">10+</div>
+            <div class="stat-label">Projects Shipped</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">3+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">15+</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="section-header">
+      <div class="section-label">Work</div>
+      <h2 class="section-title">Selected Projects</h2>
+    </div>
+
+    <div class="projects-list">
+      <div class="project-item">
+        <div class="project-category">AI / SaaS</div>
+        <div class="project-title-row">
+          <h3 class="project-title">Replybase</h3>
+          <a href="projects/replybase.html" class="project-link">View Project →</a>
+        </div>
+        <p class="project-description">
+          AI-powered customer support chatbot for Shopify merchants. RAG-based system that learns 
+          from support history, handles WISMO queries, and auto-updates weekly.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">OpenAI</span>
+          <span class="tech-tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-category">Machine Learning</div>
+        <div class="project-title-row">
+          <h3 class="project-title">Predictive Maintenance</h3>
+          <a href="projects/predictive-maintenance.html" class="project-link">View Project →</a>
+        </div>
+        <p class="project-description">
+          AI platform reducing infrastructure downtime through real-time monitoring and ML predictions.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">TensorFlow</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-category">Quantum Computing</div>
+        <div class="project-title-row">
+          <h3 class="project-title">Quantum Lab Buddy</h3>
+          <a href="projects/quantum-lab-buddy.html" class="project-link">View Project →</a>
+        </div>
+        <p class="project-description">
+          Visual quantum gate simulator with Bloch sphere visualization for 1-n qubits.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Tailwind</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-category">Web Application</div>
+        <div class="project-title-row">
+          <h3 class="project-title">Cosmic Explorer</h3>
+          <a href="projects/cosmic-explorer.html" class="project-link">View Project →</a>
+        </div>
+        <p class="project-description">
+          Immersive space exploration with 3D black hole simulation and real-time cosmic data visualization.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">Three.js</span>
+          <span class="tech-tag">Supabase</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-category">Open Source</div>
+        <div class="project-title-row">
+          <h3 class="project-title">NASA Nanosat Framework</h3>
+          <a href="projects/nasa-nanosat.html" class="project-link">View Project →</a>
+        </div>
+        <p class="project-description">
+          Contributed to NASA's open-source framework for satellite on-board software development.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">Maven</span>
+          <span class="tech-tag">Space MO</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section" id="skills">
+    <div class="section-header">
+      <div class="section-label">Expertise</div>
+      <h2 class="section-title">Skills</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3>AI & ML</h3>
+        <ul>
+          <li>OpenAI API</li>
+          <li>RAG Pipelines</li>
+          <li>Vector Databases</li>
+          <li>TensorFlow</li>
+          <li>Scikit-learn</li>
+          <li>PyTorch</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h3>Frontend</h3>
+        <ul>
+          <li>React / Next.js</li>
+          <li>TypeScript</li>
+          <li>Tailwind CSS</li>
+          <li>Three.js</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h3>Backend</h3>
+        <ul>
+          <li>Python / Flask</li>
+          <li>Node.js</li>
+          <li>PostgreSQL</li>
+          <li>MongoDB</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h3>Tools</h3>
+        <ul>
+          <li>Docker</li>
+          <li>Git</li>
+          <li>Linux</li>
+          <li>Cloud Platforms</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <div class="section-header">
+      <div class="section-label">Career</div>
+      <h2 class="section-title">Experience</h2>
+    </div>
+
+    <div class="experience-grid">
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="experience-title">Technical Head</h3>
+          <span class="experience-period">Oct 2025</span>
+        </div>
+        <div class="experience-company">SELA</div>
+        <div class="experience-location">India · Hybrid</div>
+        <p class="experience-description">
+          Lead the tech strategy and execution behind digital marketing and creative projects. 
+          Overseeing web development, AI automation, and data-driven campaign systems.
+        </p>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="experience-title">Research Assistant</h3>
+          <span class="experience-period">Apr 2025</span>
+        </div>
+        <div class="experience-company">IEEE APS and IEEE MTT-S</div>
+        <div class="experience-location">India · On-site</div>
+        <p class="experience-description">
+          Contributing to research initiatives in Antenna and Microwave Theory techniques.
+        </p>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="experience-title">Social Media Manager</h3>
+          <span class="experience-period">Mar 2025</span>
+        </div>
+        <div class="experience-company">Lambodra Group</div>
+        <div class="experience-location">Canada · Remote</div>
+        <p class="experience-description">
+          Managing social media strategy and content for the gaming and development company.
+        </p>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="experience-title">Head of Sales Marketing</h3>
+          <span class="experience-period">Jan 2025</span>
+        </div>
+        <div class="experience-company">SkillBound</div>
+        <div class="experience-location">Maryland, USA · Remote</div>
+        <p class="experience-description">
+          Developed marketing campaigns and identified target markets. Led initiatives for autistic adults.
+        </p>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="experience-title">Technical Lead</h3>
+          <span class="experience-period">2024</span>
+        </div>
+        <div class="experience-company">Replybase</div>
+        <p class="experience-description">
+          Leading technical development of AI-powered customer support chatbot for Shopify merchants.
+        </p>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="experience-title">Full-Stack Developer</h3>
+          <span class="experience-period">2023</span>
+        </div>
+        <div class="experience-company">Freelance</div>
+        <p class="experience-description">
+          Built various projects including space apps, ML platforms, and NASA contributions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section" id="education">
+    <div class="section-header">
+      <div class="section-label">Education</div>
+      <h2 class="section-title">Academic Background</h2>
+    </div>
+
+    <div class="education-grid">
+      <div class="education-item">
+        <h3 class="education-degree">Bachelor of Technology in Artificial Intelligence</h3>
+        <div class="education-school">Christ University, Bangalore</div>
+        <div class="education-period">Jun 2025 — Apr 2028</div>
+        <div class="education-activities">Activities: IEEE, Incubation, Game Development</div>
+      </div>
+
+      <div class="education-item">
+        <h3 class="education-degree">Bachelor of Business Administration</h3>
+        <div class="education-school">University of the People</div>
+        <div class="education-period">Jan 2025 — Mar 2028</div>
+        <div class="education-activities">Global community and clubs</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="contact-content">
+        <div class="section-label" style="color: rgba(255,255,255,0.4);">Contact</div>
+        <h2>Let's work together</h2>
+        <p>
+          I'm always interested in hearing about new projects, opportunities, 
+          or ways to collaborate.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:princeraymondpaul911@gmail.com" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            princeraymondpaul911@gmail.com
+          </a>
+          <a href="https://github.com/paulxg12" class="contact-link" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+            github.com/paulxg12
+          </a>
+          <a href="https://www.linkedin.com/in/prince-raymond-paul" class="contact-link" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            linkedin.com/in/prince-raymond-paul
+          </a>
+        </div>
+      </div>
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-logo">PAUL</div>
+        <div class="footer-copy">2026</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/paulxg12" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/prince-raymond-paul" target="_blank">LinkedIn</a>
+        <a href="mailto:princeraymondpaul911@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>

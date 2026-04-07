@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <style>
+      .bg { fill: #FAFAF8; }
+      .text { fill: #1A1A1A; font-family: 'Inter', -apple-system, sans-serif; }
+      .accent { fill: #C9A962; }
+      .mono { font-weight: 300; letter-spacing: 0.2em; }
+      .wordmark { font-weight: 600; font-size: 14px; letter-spacing: 0.15em; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg" width="400" height="400"/>
+  
+  <!-- Monogram -->
+  <text class="text mono" x="200" y="165" text-anchor="middle" font-size="72">P R</text>
+  
+  <!-- Accent line -->
+  <rect class="accent" x="140" y="195" width="120" height="1"/>
+  
+  <!-- Wordmark -->
+  <text class="text wordmark" x="200" y="240" text-anchor="middle">PRINCE RAYMOND PAUL</text>
+</svg>

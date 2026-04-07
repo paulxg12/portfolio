@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Replybase — Prince Raymond Paul</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #FFFFFF;
+      --bg-secondary: #FAFAFA;
+      --text: #111111;
+      --text-secondary: #666666;
+      --text-tertiary: #999999;
+      --accent: #375534;
+      --border: #E5E5E5;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 24px 48px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--text);
+    }
+
+    .project-header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 48px 64px;
+    }
+
+    .project-category {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .project-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .project-subtitle {
+      font-size: 20px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .project-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 48px 120px;
+    }
+
+    .section {
+      margin-bottom: 64px;
+    }
+
+    .section h2 {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tech-tag {
+      padding: 8px 16px;
+      background: var(--bg-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .features-list {
+      list-style: none;
+    }
+
+    .features-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+
+    .features-list li:last-child {
+      border-bottom: none;
+    }
+
+    .features-list strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--text);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    .link:hover {
+      background: #333;
+    }
+
+    .link.secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .link.secondary:hover {
+      border-color: var(--text);
+    }
+
+    @media (max-width: 640px) {
+      .back-link {
+        padding: 20px;
+      }
+
+      .project-header {
+        padding: 0 20px 48px;
+      }
+
+      .project-content {
+        padding: 0 20px 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="../portfolio-final.html" class="back-link">← Back to Portfolio</a>
+
+  <header class="project-header">
+    <div class="project-category">AI / SaaS</div>
+    <h1 class="project-title">Replybase</h1>
+    <p class="project-subtitle">
+      AI-powered customer support chatbot for Shopify merchants that learns from support history 
+      and handles customer queries automatically.
+    </p>
+  </header>
+
+  <div class="project-content">
+    <div class="section">
+      <h2>Overview</h2>
+      <p>
+        Replybase is an AI-powered customer support solution designed specifically for Shopify merchants. 
+        The system leverages Retrieval-Augmented Generation (RAG) to build a knowledge base from existing 
+        support history, enabling the AI to provide accurate, context-aware responses to customer inquiries.
+      </p>
+      <p>
+        Key features include automatic weekly updates to the knowledge base, seamless Shopify integration, 
+        and specialized handling of WISMO (Where Is My Order?) queries through direct Shopify Orders API integration.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Key Features</h2>
+      <ul class="features-list">
+        <li><strong>RAG Pipeline:</strong> Builds and maintains a vector database from Gorgias support history for accurate, context-aware responses</li>
+        <li><strong>Shopify Integration:</strong> Deploys chat widgets directly on Shopify stores with native look and feel</li>
+        <li><strong>WISMO Handling:</strong> Automatically answers order status queries using Shopify Orders API</li>
+        <li><strong>Weekly Sync:</strong> Automatically updates the knowledge base weekly to keep responses current</li>
+        <li><strong>Analytics Dashboard:</strong> Provides insights into query types, resolution rates, and customer satisfaction</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Technologies</h2>
+      <div class="tech-stack">
+        <span class="tech-tag">Next.js 14</span>
+        <span class="tech-tag">React 18</span>
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">Tailwind CSS</span>
+        <span class="tech-tag">shadcn/ui</span>
+        <span class="tech-tag">Node.js</span>
+        <span class="tech-tag">Express 5</span>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">pgvector</span>
+        <span class="tech-tag">Redis</span>
+        <span class="tech-tag">BullMQ</span>
+        <span class="tech-tag">OpenAI (GPT-4o)</span>
+        <span class="tech-tag">Docker</span>
+        <span class="tech-tag">Turborepo</span>
+        <span class="tech-tag">Prisma</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Links</h2>
+      <div class="links">
+        <a href="https://docs.replybase.ai" class="link" target="_blank">Documentation</a>
+        <a href="mailto:support@replybase.ai" class="link secondary">Contact</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
